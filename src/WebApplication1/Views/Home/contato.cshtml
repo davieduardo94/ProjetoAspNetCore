@@ -1,0 +1,40 @@
+﻿@model WebApplication1.ViewModels.Home.ContatoViewModel
+
+@{
+    ViewBag.Title = "Contato";
+}
+
+<div class="row">
+    <h1>Fale comigo pelo email</h1> 
+    <form asp-controller="Home" asp-action="Contato" method="post"> 
+        <!-- criando a mensagem do controller "Mensagem enviada com sucesso" -->
+        @if(ViewBag.Mensagem != null)
+        {
+            <div class="alert alert-info">@ViewBag.Mensagem</div> //a mensagem do controller sera enviada para a view e retorna a mensagem
+
+        }
+        <div asp-validation-summary="All" class="text-danger"></div> <!-- vai mostrar os campos que nao foram preenchidos-->
+
+        <div class="form-group">
+            <label asp-for="Nome">Nome</label> <!-- ASP-FOR  faz um bind automatico dos campos do formulario-->
+            <input asp-for="Nome" type="text" class="form-control" placeholder="Insira seu nome...">
+            <span asp-validation-for="Nome" class="text-muted"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" type="email" class="form-control" placeholder="Insira seu email...">
+            <span  asp-validation-for="Email" class="text-muted"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Mensagem">Mensagem</label>
+            <textarea asp-for="Mensagem" class="form-control" placeholder="Insira sua mensagem..."></textarea>
+            <span asp-validation-for="Mensagem" class="text-muted"></span>
+            </div>
+          <button type="submit" class="btn btn-primary">Enviar email</button>
+    </form>
+</div>
+
+@section scripts{
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+} <!-- blibliotecas de validação que serão renderizadas no Layout-->

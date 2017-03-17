@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Erro no Ambiente";
+}
+<h1>@ViewBag.Title</h1> 
+
+@if (ViewBag.Mensagem != null)
+{
+     <p>@ViewBag.Mensagem</p> //mostra a mensagem da aplicação detalhando o erro
+}
+else
+{
+<p>
+    Erro inesperado, por favor tente novamente
+</p>
+}

@@ -1,0 +1,14 @@
+﻿@model WebApplication1.Models.Pessoa
+
+@{
+ViewBag.Title = "Index";
+}
+    <h1>Inicial do index cshtml</h1> 
+    <p>
+        ID: @Model.Id<br />
+        Nome:@Model.Nome <br />
+        CPF: @Model.Cpf<br />
+        Telefone: @Model.Telefone<br />
+    </p>
+    @DateTime.Now.ToString()
+    
